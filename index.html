@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <!-- Floating Navbar -->
+    <nav class="floating-nav">
+        <div class="container nav-container">
+            <div class="nav-brand">Sahil Hadke</div>
+            <div class="nav-socials">
+                <a href="#" aria-label="LinkedIn">LI</a>
+                <a href="#" aria-label="GitHub">GH</a>
+                <a href="#" aria-label="Twitter">TW</a>
+                <a href="#" aria-label="Email">EM</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero" class="hero-section">
+        <div class="container hero-container">
+            <div class="hero-image-wrapper" data-aos="fade-right" data-aos-duration="1000">
+                <img src="./img/profile.webp" alt="Profile Picture of the Developer" class="profile-img">
+            </div>
+            <div class="hero-content" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                <h1 class="hero-title">Sahil Hadke</h1>
+                <p class="hero-subtitle">I'm just a guy who likes to break down big problems into smaller ones... and then automate them away.</p>
+                <a href="./resume.pdf" class="cta-button" download>Download Resume</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Projects Section (Carousel) -->
+    <section id="projects" class="projects-section">
+        <div class="container" data-aos="fade-up" data-aos-duration="1000">
+            <h2 class="section-title">My Projects</h2>
+            
+            <!-- Swiper -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper" id="projects-container">
+                    <!-- Projects will be injected here by JavaScript -->
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="about-section">
+        <div class="container about-container" data-aos="zoom-in" data-aos-duration="1000">
+            <h2 class="section-title">About Me</h2>
+            <p class="about-bio">
+                
+My life's work is a quest to automate anything that annoys me. So far, I've built a job application pipeline (because who has time for cover letters?) and a tool for vetting domain names that knows more about URLs than I do. I'm also a three-time hackathon champion, which mostly proves I can build something cool in 48 hours and then immediately forget how it works.
+            </p>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-socials">
+            <a href="#" aria-label="LinkedIn">LI</a>
+            <a href="#" aria-label="GitHub">GH</a>
+            <a href="#" aria-label="Twitter">TW</a>
+            <a href="#" aria-label="Email">EM</a>
+        </div>
+        <p>&copy; 2025 Alex Developer. All rights reserved.</p>
+    </footer>
+
+    <script src="project-data.js"></script>
+    <!-- Swiper.js JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
