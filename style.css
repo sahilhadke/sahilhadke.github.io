@@ -54,7 +54,7 @@ img {
     color: var(--accent-color);
 }
 .section-subtitle {
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-align: center;
     margin-bottom: 2rem;
     color: var(--text-secondary);
@@ -404,9 +404,11 @@ font-style: normal;
 
 .about-bio {
     max-width: 800px;
-    text-align: center;
+    /* text-align: left; */
+    text-align: justify;
     font-size: 1.1rem;
-    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    color: var(--text-primary);
     line-height: 1.8;
 }
 
