@@ -2,11 +2,11 @@
 :root {
     --bg-color: #121212;
     --card-bg: #1e1e1e;
-    --text-primary: #f5f5f5;
-    --text-secondary: #b0b0b0;
-    --accent-color: #b73a5c; /* Light Sea Green */
-    --accent-hover: #e8a929;
-    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --text-primary: #fff;
+    --text-secondary: #EFECE3;
+    --accent-color: #4A70A9; /* Light Sea Green */
+    --accent-hover: #8FABD4;
+    --font-family: "Poppins", sans-serif;
     --transition-speed: 0.3s;
     --container-padding: 2rem;
     --nav-height: 70px;
@@ -51,9 +51,128 @@ img {
 .section-title {
     font-size: 2.5rem;
     text-align: center;
-    margin-bottom: 2rem;
     color: var(--accent-color);
 }
+.section-subtitle {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-secondary);
+}
+
+/* Fonts */
+.poppins-thin {
+font-family: "Poppins", sans-serif;
+font-weight: 100;
+font-style: normal;
+}
+
+.poppins-extralight {
+font-family: "Poppins", sans-serif;
+font-weight: 200;
+font-style: normal;
+}
+
+.poppins-light {
+font-family: "Poppins", sans-serif;
+font-weight: 300;
+font-style: normal;
+}
+
+.poppins-regular {
+font-family: "Poppins", sans-serif;
+font-weight: 400;
+font-style: normal;
+}
+
+.poppins-medium {
+font-family: "Poppins", sans-serif;
+font-weight: 500;
+font-style: normal;
+}
+
+.poppins-semibold {
+font-family: "Poppins", sans-serif;
+font-weight: 600;
+font-style: normal;
+}
+
+.poppins-bold {
+font-family: "Poppins", sans-serif;
+font-weight: 700;
+font-style: normal;
+}
+
+.poppins-extrabold {
+font-family: "Poppins", sans-serif;
+font-weight: 800;
+font-style: normal;
+}
+
+.poppins-black {
+font-family: "Poppins", sans-serif;
+font-weight: 900;
+font-style: normal;
+}
+
+.poppins-thin-italic {
+font-family: "Poppins", sans-serif;
+font-weight: 100;
+font-style: italic;
+}
+
+.poppins-extralight-italic {
+font-family: "Poppins", sans-serif;
+font-weight: 200;
+font-style: italic;
+}
+
+.poppins-light-italic {
+font-family: "Poppins", sans-serif;
+font-weight: 300;
+font-style: italic;
+}
+
+.poppins-regular-italic {
+font-family: "Poppins", sans-serif;
+font-weight: 400;
+font-style: italic;
+}
+
+.poppins-medium-italic {
+font-family: "Poppins", sans-serif;
+font-weight: 500;
+font-style: italic;
+}
+
+.poppins-semibold-italic {
+font-family: "Poppins", sans-serif;
+font-weight: 600;
+font-style: italic;
+}
+
+.poppins-bold-italic {
+font-family: "Poppins", sans-serif;
+font-weight: 700;
+font-style: italic;
+}
+
+.poppins-extrabold-italic {
+font-family: "Poppins", sans-serif;
+font-weight: 800;
+font-style: italic;
+}
+
+.poppins-black-italic {
+font-family: "Poppins", sans-serif;
+font-weight: 900;
+font-style: italic;
+}
+.limelight-regular {
+font-family: "Limelight", sans-serif;
+font-weight: 400;
+font-style: normal;
+}  
 
 /* Floating Navbar */
 .floating-nav {
@@ -147,13 +266,13 @@ img {
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: 4.5rem;
     margin-bottom: 1rem;
     line-height: 1.2;
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: var(--text-secondary);
     margin-bottom: 2rem;
 }
@@ -321,6 +440,10 @@ img {
 
     body {
         padding-top: 0;
+    }
+
+    .swiper {
+        overflow: initial !important;
     }
 
     .floating-nav {
