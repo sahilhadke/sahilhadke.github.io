@@ -1,15 +1,17 @@
 const projectsData = [
     {
-        title: "Tom Riddle's Diary",
-        description: "This is not just a digital diary — it’s a living memory, a living AI Agent. Won 3rd place in the AI Track at InnovationHacks 2025 at ASU.",
+        title: "Tom Riddle\u2019s Diary",
+        description: "This is not just a digital diary \u2014 it\u2019s a living memory, a living AI Agent. Won 3rd place in the AI Track at InnovationHacks 2025 at ASU.",
         link: "https://devpost.com/software/tom-riddle",
-        image: "./img/projects/11.png"
+        image: "./img/projects/11.png",
+        tag: "Hackathon Winner"
     },
     {
         title: "Faith",
         description: "Faith detects \"haunted\" domains to protect your business from toxic histories and SEO penalties. Awarded first place at HackSoda 2024, we ensure you build on a ghost-proof foundation.",
         link: "https://devpost.com/software/faith-vb43uw",
-        image: "./img/projects/5.png"
+        image: "./img/projects/5.png",
+        tag: "Hackathon Winner"
     },
     {
         title: "The Vizard",
@@ -21,7 +23,8 @@ const projectsData = [
         title: "Melodia",
         description: "Melodia.ai automates the complex process of adding custom beats to existing songs. Using Python and Essentia for seamless synchronization, this tool allows users to blend new instruments with original tracks. Awarded 2nd place at Sunhacks 2024.",
         link: "https://devpost.com/software/melodia-6cqsn4",
-        image: "./img/projects/7.png"
+        image: "./img/projects/7.png",
+        tag: "Hackathon Winner"
     },
     {
         title: "Customer Relationship Management",
@@ -42,8 +45,8 @@ const projectsData = [
         image: "./img/projects/10.png"
     },
     {
-        title: "Dijkstra's Algorithm Visualization",
-        description: "A real-time interactive visualization of Dijkstra's Algorithm built in Unity. It stands as a personal milestone: coding complex graph problems from scratch at 19 years old without relying on any external AI tools.",
+        title: "Dijkstra\u2019s Algorithm Visualization",
+        description: "A real-time interactive visualization of Dijkstra\u2019s Algorithm built in Unity. It stands as a personal milestone: coding complex graph problems from scratch at 19 years old without relying on any external AI tools.",
         link: "https://sahil13.itch.io/dj-algo",
         image: "./img/projects/9.png"
     }
