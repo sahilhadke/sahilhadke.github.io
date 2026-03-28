@@ -161,19 +161,23 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    align-items: start;
+    align-items: stretch;
 }
 
 /* --- Experience --- */
 
 .experience {
     margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .exp-list {
     list-style: none;
     display: flex;
     flex-direction: column;
+    flex: 1;
+    overflow-y: auto;
 }
 
 .exp-item {
@@ -223,6 +227,8 @@ h1 {
 
 .projects {
     margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
 }
 
 h2 {
@@ -239,6 +245,8 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 0;
+    flex: 1;
+    overflow-y: auto;
 }
 
 .project-item {
