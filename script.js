@@ -351,6 +351,138 @@ function initStars() {
     window.addEventListener('resize', () => { resize(); create(); });
 }
 
+function initWalker() {
+    const el = document.getElementById('walker');
+    if (!el) return;
+    const tip = document.getElementById('walker-tip');
+
+    const BASE = 'img/character/a_young_man_with_walk_';
+    const TALK_SRC = 'img/character/a_young_man_with_talking_south.gif';
+    const TALK_MS = 5000;
+    const TALK_TEXT = "I'm Sahil's AI Agent maintaining this website, please reach out to him if you have any questions. Thank you";
+    new Image().src = TALK_SRC;
+    // 8 compass directions ordered by angle (0 = east, going clockwise on screen
+    // where +y is downwards).
+    const DIRS = [
+        'east', 'south-east', 'south', 'south-west',
+        'west', 'north-west', 'north', 'north-east',
+    ];
+    // Preload every frame so direction swaps don't flicker.
+    DIRS.forEach(d => { new Image().src = `${BASE}${d}.gif`; });
+
+    const SIZE = 192;
+    const SPEED = 55;          // pixels per second
+    const PAUSE_MIN = 600;     // ms idle between walks
+    const PAUSE_MAX = 2200;
+
+    function rand(min, max) { return min + Math.random() * (max - min); }
+    function maxX() { return window.innerWidth - SIZE; }
+    function maxY() { return window.innerHeight - SIZE; }
+
+    // Start somewhere on screen.
+    let x = rand(0, maxX());
+    let y = rand(0, maxY());
+    let targetX = x, targetY = y;
+    let curDir = '';
+    let walking = false;
+    let pauseUntil = 0;
+    let talking = false;
+    let talkUntil = 0;
+    let last = performance.now();
+
+    function setDir(dx, dy) {
+        // angle 0..2PI clockwise from east; bucket into 8 slices.
+        let a = Math.atan2(dy, dx);
+        if (a < 0) a += Math.PI * 2;
+        const idx = Math.round(a / (Math.PI / 4)) % 8;
+        const dir = DIRS[idx];
+        if (dir !== curDir) {
+            curDir = dir;
+            el.src = `${BASE}${dir}.gif`;
+        }
+    }
+
+    function pickTarget() {
+        targetX = rand(0, maxX());
+        targetY = rand(0, maxY());
+        walking = true;
+        setDir(targetX - x, targetY - y);
+    }
+
+    function positionTip() {
+        if (!tip) return;
+        // Centered above the character, clamped to the viewport.
+        const tw = tip.offsetWidth;
+        let tx = x + SIZE / 2 - tw / 2;
+        let ty = y - tip.offsetHeight - 8;
+        tx = Math.max(8, Math.min(tx, window.innerWidth - tw - 8));
+        if (ty < 8) ty = y + SIZE + 8; // flip below if no room above
+        tip.style.transform = `translate3d(${tx.toFixed(1)}px, ${ty.toFixed(1)}px, 0)`;
+    }
+
+    function startTalking(now) {
+        talking = true;
+        walking = false;
+        talkUntil = now + TALK_MS;
+        el.src = TALK_SRC;
+        curDir = ''; // force a fresh walk frame afterwards
+        if (tip) {
+            tip.textContent = TALK_TEXT;
+            positionTip();
+            tip.classList.add('visible');
+        }
+    }
+
+    el.addEventListener('click', () => {
+        if (!talking) startTalking(performance.now());
+    });
+
+    el.style.display = 'block';
+    pickTarget();
+
+    function tick(now) {
+        const dt = Math.min((now - last) / 1000, 0.05);
+        last = now;
+
+        if (talking) {
+            if (now >= talkUntil) {
+                talking = false;
+                if (tip) tip.classList.remove('visible');
+                pauseUntil = now; // resume wandering immediately
+            }
+        } else if (walking) {
+            const dx = targetX - x;
+            const dy = targetY - y;
+            const dist = Math.hypot(dx, dy);
+            const step = SPEED * dt;
+
+            if (dist <= step) {
+                x = targetX;
+                y = targetY;
+                walking = false;
+                pauseUntil = now + rand(PAUSE_MIN, PAUSE_MAX);
+            } else {
+                x += (dx / dist) * step;
+                y += (dy / dist) * step;
+            }
+        } else if (now >= pauseUntil) {
+            pickTarget();
+        }
+
+        el.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
+        requestAnimationFrame(tick);
+    }
+
+    requestAnimationFrame(tick);
+
+    window.addEventListener('resize', () => {
+        x = Math.min(x, maxX());
+        y = Math.min(y, maxY());
+        targetX = Math.min(targetX, maxX());
+        targetY = Math.min(targetY, maxY());
+    }, { passive: true });
+}
+
 function initCountdown() {
     const el = document.getElementById('countdown');
     if (!el) return;
@@ -371,6 +503,7 @@ function initCountdown() {
 
 document.addEventListener('DOMContentLoaded', () => {
     initStars();
+    initWalker();
     initCountdown();
     const list = document.getElementById('projects-list');
     if (!list || typeof projectsData === 'undefined') return;

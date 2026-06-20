@@ -57,6 +57,47 @@ main {
     pointer-events: none;
 }
 
+#walker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 192px;
+    height: 192px;
+    z-index: 5;
+    pointer-events: auto;
+    cursor: pointer;
+    image-rendering: pixelated;
+    opacity: 0.9;
+    will-change: transform;
+    transform: translate3d(-100px, -100px, 0);
+    display: none;
+}
+
+#walker-tip {
+    position: fixed;
+    top: 0;
+    left: 0;
+    max-width: 240px;
+    padding: 0.6rem 0.8rem;
+    background: #1a1a1a;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: var(--font);
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--text);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+    z-index: 20;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate3d(-100px, -100px, 0) translateY(4px);
+    transition: opacity 0.25s ease;
+}
+
+#walker-tip.visible {
+    opacity: 1;
+}
+
 #countdown {
     position: fixed;
     top: 1.25rem;
