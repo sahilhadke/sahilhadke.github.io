@@ -27,27 +27,9 @@ const projectsData = [
         tag: "Hackathon Winner"
     },
     {
-        title: "Customer Relationship Management",
-        description: "A modular CRM system designed for schools and organizations in India to streamline data and operations. We developed customizable features for lead management and analytics, helping 4 organizations manage over 1000+ leads collectively. Published in IJARSCT.",
-        link: "https://ijarsct.co.in/Paper7119.pdf",
-        image: "./img/projects/3.png"
-    },
-    {
         title: "JobTailor",
         description: "A Python package that leverages the Gemini LLM to automate resume and cover letter customization. By analyzing a master resume and specific job descriptions, it generates tailored documents to increase interview chances.",
         link: "https://github.com/sahilhadke/job-tailor",
         image: "./img/projects/6.png"
     },
-    {
-        title: "RAG-based Recursive Web Crawler",
-        description: "A powerful web application combining Retrieval-Augmented Generation (RAG) with a recursive web crawler. It extracts data from entire websites to create an interactive knowledge base, allowing users to query content using advanced language models.",
-        link: "https://github.com/sahilhadke/website-rag",
-        image: "./img/projects/10.png"
-    },
-    {
-        title: "Dijkstra\u2019s Algorithm Visualization",
-        description: "A real-time interactive visualization of Dijkstra\u2019s Algorithm built in Unity. It stands as a personal milestone: coding complex graph problems from scratch at 19 years old without relying on any external AI tools.",
-        link: "https://sahil13.itch.io/dj-algo",
-        image: "./img/projects/9.png"
-    }
 ];
